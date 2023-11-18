@@ -1,0 +1,93 @@
+/* Footer Styles */
+.footer-container {
+  background-color: black; /* Set the background color as needed */
+  color: white;
+  padding: 20px; /* Adjust the padding as needed */
+}
+
+.container {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.sm\:flex-row {
+  @media (min-width: 640px) {
+    flex-direction: row;
+  }
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.sm\:mb-0 {
+  @media (min-width: 640px) {
+    margin-bottom: 0;
+  }
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.text-lg {
+  font-size: 1.125rem; /* Adjust the size as needed */
+}
+
+.flex.items-center.justify-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Social Link Styles */
+.flex.space-x-2 > * + * {
+  margin-left: 0.5rem;
+}
+
+/* Navigation Link Styles */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 0.5rem; /* Adjust the spacing between list items */
+}
+
+a {
+  color: white; /* Set the link color as needed */
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+  color: #007bff; /* Set the hover color as needed */
+}

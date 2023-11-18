@@ -1,0 +1,46 @@
+/* Container styles */
+.container {
+    text-align: center;
+  }
+  
+  /* Gradient text styles */
+  .gradient-text {
+    background: linear-gradient(to right, #3DBFF5, #6F42C1);
+    background-clip: text;
+    color: transparent;
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 16px;
+  }
+  
+  /* Header styles */
+  .header {
+    color: #333;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 48px;
+    margin-top: 8px;
+  }
+  
+  /* Wavy text styles */
+  .wavy-text {
+    background: linear-gradient(to right, #8A63D2, #E23A3A);
+    background-clip: text;
+    color: transparent;
+    margin-left: 2px;
+  }
+  
+  /* Description styles */
+  .description {
+    color: #555;
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 500;
+    margin-top: 4px;
+    padding: 0 8px;
+    max-width: 740px;
+    text-align: center;
+  }
+  
