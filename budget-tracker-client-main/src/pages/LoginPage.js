@@ -2,74 +2,105 @@ import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "./../context/auth.context";
 import authService from "../services/auth.service";
-import { Container, Form, Button, Alert, Card, Row, Col } from 'react-bootstrap';
-
 
 function LoginPage(props) {
+  const navigate = useNavigate();
+
+  // Use State
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
-
-  const navigate = useNavigate();
-
+  
   const { storeToken, authenticateUser } = useContext(AuthContext);
 
+  // Handle Event Changes
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
 
-  
+  // Handle Login Submit Function
   const handleLoginSubmit = (e) => {
     e.preventDefault();
     const requestBody = { email, password };
 
-    // axios.post(`${API_URL}/auth/login`, requestBody
-
-    authService.login(requestBody)
-      .then((response) => {
-        // console.log("JWT token", response.data.authToken);
-        
-        storeToken(response.data.authToken);
-        return authenticateUser();
-      })
+    authService.login(requestBody).then((response) => {
+      storeToken(response.data.authToken);
+      return authenticateUser();
+    })
       .then(() => {
         navigate("/dashboard");
       })
       .catch((error) => {
-      	const errorDescription = error.response.data.message;
-      	setErrorMessage(errorDescription);
-    	})
+        const errorDescription = error.response.data.message;
+        setErrorMessage(errorDescription);
+      })
   };
 
-return (
-  <Container className="d-flex justify-content-center align-items-center" style={{ minHeight: "100vh" }}>
-    <Card className="w-100" style={{ maxWidth: "400px", backgroundColor:' #82c4be' }}>
-      <Card.Body>
-        <h2 className="text-center mb-4">Login</h2>
-
-        <Form onSubmit={handleLoginSubmit}>
-          <Form.Group id="email">
-            <Form.Label><strong>Email:</strong></Form.Label>
-            <Form.Control type="email" name="email" value={email} onChange={handleEmail} required />
-          </Form.Group>
-
-          <Form.Group id="password">
-            <Form.Label><strong>Password:</strong></Form.Label>
-            <Form.Control type="password" name="password" value={password} onChange={handlePassword} required />
-          </Form.Group>
-
-          <Button style={{ backgroundColor: '#e76e50', borderColor: '#123456' }} className="btn mt-3" type="submit">Login</Button>
-        </Form>
-
-        { errorMessage && <Alert variant="danger" className="mt-3">{errorMessage}</Alert> }
-        
-        <div className="w-100 text-center mt-3">
-          <p>Don't have an account yet?</p>
-          <Link to={"/auth/signup"} style={{ backgroundColor: '#006c75', borderColor: '#123456', color: '#ffffff', textDecoration: 'none', padding: '10px 20px', borderRadius: '5px' }}>Sign Up</Link>
+  return (
+    <div className='h-screen bg-gradient-to-r from-[#f1f7f1] to-[#ebf4f8] pt-8'>
+      <div className='flex flex-col justify-center items-center pt-8 '>
+        <div className='bg-gradient-to-r text-[20px] font-extrabold uppercase leading-[24.2px] tracking-widest md:text-[26px] md:leading-[30px] lg:leading-[36px] bg-clip-text mb-4 text-[#414141] lg:text-[32px]'>
+          CHECK RETURNS
+        </div>
+        <div className={`sm:text-[40px] text-[20px] font-bold text-[#414141] mx-3`}>
+          <span className='inline-block bg-clip-text text-transparent bg-gradient-to-l from-[#5A32A3] to-[#D03592] dark:to-[#D03592] sm:mx-2'>
+            Login
+          </span>
+          to continue
         </div>
 
-      </Card.Body>
-    </Card>
-  </Container>
-)
+        <div className='w-[90%] mt-4 mb-8 border md:w-[460px] rounded-2xl pt-8 pb-6 px-7.5 border-gray-400 bg-white'>
+          <form onSubmit={handleLoginSubmit} className='px-4'>
+            <div className='text-left mt-2 w-full text-gray-400 select-none dark:text-dark-gray-400 text-xs font-semibold uppercase truncate ml-3.5'>
+              Email
+            </div>
+            <input
+              className='text-sm pt-2 pb-2 pl-3 border-2 mt-1 pr-3 rounded-lg text-gray-900 w-full'
+              type='email'
+              id='email'
+              value={email}
+              onChange={handleEmail}
+              name='email'
+              placeholder='Email Address'
+              required
+            />
+
+            <div className='text-left mt-2 w-full text-gray-400 select-none dark:text-dark-gray-400 text-xs font-semibold uppercase truncate ml-3.5'>
+              Password
+            </div>
+            <input
+              className='text-sm pt-2 pb-2 pl-3 border-2 mt-1 pr-3 rounded-lg text-gray-900 w-full'
+              type='password'
+              id='password'
+              value={password}
+              onChange={handlePassword}
+              name='password'
+              placeholder='Enter Password'
+              required
+            />
+
+            <button
+              type='submit'
+              className='flex justify-center items-center w-full my-3'
+            >
+              <div className='w-fit px-5 py-1 text-[18px] rounded-lg bg-[#29ABE2] hover:bg-[#88d4f5] text-white font-semibold select-none'>
+                Login
+              </div>
+            </button>
+          </form>
+
+          {errorMessage && <div className='text-red-500'>{errorMessage}</div>}
+
+          <div className='flex justify-center space-x-2 items-center my-3 p-3'>
+            <div className='flex text-md text-gray-600 dark:text-dark-gray-600 select-none'>
+              Already have an account?
+            </div>
+            <div className='inline-flex text-md items-center font-semibold ml-3 text-[#29abe2] cursor-pointer'>
+              <Link to={'/auth/signup'}>Signup</Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 }
 export default LoginPage;

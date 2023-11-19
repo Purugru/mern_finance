@@ -130,7 +130,7 @@ function IncomeList() {
 
   return (
     <div className="container" style={{ paddingTop: '50px', paddingBottom: '50px', minWidth: '60%', minHeight: '80vh' }}>
-      <h2 className="mb-3">Income List</h2>
+      <h2 className="mb-3 mt-12">Income List</h2>
       <button type="button" className="btn" style={{ color: 'white', backgroundColor: '#e76e50', marginTop: '20px' }} onClick={() => setEditingIncome({})}>Add New Income</button>
       <div className="card mx-auto" style={{ maxWidth: '800px', backgroundColor: '#82c4be', marginTop: '20px' }}>
         <table className="table">
