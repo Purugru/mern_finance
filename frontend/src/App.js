@@ -11,10 +11,7 @@ import IsAnon from './components/IsAnon';
 import IncomeList from './components/IncomeList';
 import ExpenseList from './components/ExpenseList';
 import Balance from './components/Balance';
-import IncomeForm from './components/IncomeForm';
-import ExpenseForm from './components/ExpenseForm';
 import Category from './components/Category';
-import Profile from './components/Profile';
 import Footer from "./components/Footer"
 
 
@@ -33,12 +30,9 @@ function App() {
 
         {/* Features */}
         <Route path="/income" element={<IsPrivate><IncomeList /></IsPrivate>} />
-        <Route path="/income/new" element={<IsPrivate><IncomeForm /></IsPrivate>} />
-        <Route path="/expense/new" element={<IsPrivate><ExpenseForm /></IsPrivate>} />
         <Route path="/expense" element={<IsPrivate><ExpenseList /></IsPrivate>} />
         <Route path="/balance" element={<IsPrivate><Balance /></IsPrivate>} />
         <Route path="/category" element={<IsPrivate><Category /></IsPrivate>} />
-        <Route path="/profile" element={<IsPrivate><Profile /></IsPrivate>} />
       </Routes>
       <Footer />
     </div >

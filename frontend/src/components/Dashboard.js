@@ -2,9 +2,11 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../context/auth.context';
 import { PiShareNetwork } from "react-icons/pi"
-import { GiGiftOfKnowledge } from "react-icons/gi"
+import { GiGiftOfKnowledge, GiReceiveMoney } from "react-icons/gi"
 import { HiOutlineInformationCircle } from "react-icons/hi"
+import { GiPayMoney } from "react-icons/gi";
 import img from "./main_page_bg.png"
+import { FaBalanceScale } from 'react-icons/fa';
 
 function Dashboard() {
   const { user } = useContext(AuthContext);
@@ -90,32 +92,34 @@ function Dashboard() {
         <img src={img} height={680} width={525} alt='Main_BG' />
       </div>
 
-      <div className='mt-16'>
-        <div className='mb-4 px-4 text-center text-[28px] font-extrabold leading-8 text-gray-900 dark:text-dark-gray-900 md:text-[40px] md:leading-[48px]'>Save / Share your <span className='bg-gradient-to-r bg-clip-text text-transparent from-[#E23A3A] to-[#E58A00]'>Results</span></div>
-        <div className='mx-auto max-w-2xl px-4 text-center text-[16px] leading-6 text-gray-900 dark:text-dark-gray-800 md:text-[20px] md:leading-8 '>Save or share your calculated results for informed financial decisions</div>
-
+      <div className='mt-20'>
+        <div className='mb-4 px-4 text-center text-[28px] font-extrabold leading-8 text-gray-900 dark:text-dark-gray-900 md:text-[40px] md:leading-[48px]'>CheckReturns <span className='bg-gradient-to-r bg-clip-text text-transparent from-[#E23A3A] to-[#E58A00]'>Services</span></div>
         <div className='flex justify-center mt-10'>
           <div className='flex flex-wrap justify-center sm:justify-around lg:w-10/12 xl:w-11/12'>
             <div className='relative border-2 z-10 flex transform-gpu cursor-pointer flex-col rounded-2xl bg-white p-4 shadow-lg gradient-border-2 hover:border-gradient-tl-light-blue-white lg:max-w-[325px] m-5 sm:w-[280px] lg:w-[300px] xl:w-[320px]'>
               <div className='h-[150px] w-full rounded object-cover flex justify-center items-center text-[#E23A3A]'>
-                <PiShareNetwork size={80} />
+                <GiReceiveMoney size={80} />
               </div>
-              <div className="tracking-tight my-3 font-inter text-lg font-semibold leading-6 text-gray-800">Share Your Financial Success</div>
-              <div className='blue-link mb-5 text-base font-normal leading-[22px] text-gray-500'>We believe in celebrating your financial milestones. Share your calculated results with your friends and family to showcase your wise investment decisions.</div>
+              <div className="tracking-tight my-3 font-inter text-2xl font-semibold leading-6 text-gray-800 capitalize text-center">Income Manager</div>
+              <div className='blue-link mb-5 text-base font-normal leading-[22px] text-gray-500'>Optimize earnings, track income sources, and visualize growth with an intuitive Income Manager for financial success.</div>
+
+              <a className='text-center no-underline text-black border-2 px-3 py-2 rounded-lg text-lg hover:bg-blue-200 transition duration-500 select-none'>Income</a>
             </div>
             <div className='relative border-2 z-10 flex transform-gpu cursor-pointer flex-col rounded-2xl bg-white p-4 shadow-lg gradient-border-2 hover:border-gradient-tl-light-blue-white lg:max-w-[325px] m-5 sm:w-[280px] lg:w-[300px] xl:w-[320px]'>
               <div className='h-[150px] w-full rounded object-cover flex justify-center items-center text-[#e2d278]'>
-                <GiGiftOfKnowledge size={80} />
+                <GiPayMoney size={80} />
               </div>
-              <div className="tracking-tight my-3 font-inter text-lg font-semibold leading-6 text-gray-800">Spread the Knowledge</div>
-              <div className='blue-link mb-5 text-base font-normal leading-[22px] text-gray-500'>Sharing your calculated results can inspire others to take control of their financial future. Educate and empower your network with the insights gained from our calculators.</div>
+              <div className="tracking-tight my-3 font-inter text-2xl font-semibold leading-6 text-gray-800 capitalize text-center">Expense Manager</div>
+              <div className='blue-link mb-5 text-base font-normal leading-[22px] text-gray-500'>Control spending, categorize expenses, and achieve financial goals with a powerful Expense Manager for smart money management.</div>
+              <a className='text-center no-underline text-black border-2 px-3 py-2 rounded-lg text-lg hover:bg-blue-200 transition duration-500 select-none'>Expense</a>
             </div>
             <div className='relative border-2 z-10 flex transform-gpu cursor-pointer flex-col rounded-2xl bg-white p-4 shadow-lg gradient-border-2 hover:border-gradient-tl-light-blue-white lg:max-w-[325px] m-5 sm:w-[280px] lg:w-[300px] xl:w-[320px]'>
               <div className='h-[150px] w-full rounded object-cover flex justify-center items-center text-[#E58A00]'>
-                <HiOutlineInformationCircle size={80} />
+                <FaBalanceScale size={80} />
               </div>
-              <div className="tracking-tight my-3 font-inter text-lg font-semibold leading-6 text-gray-800">Stay Informed Together</div>
-              <div className='blue-link mb-5 text-base font-normal leading-[22px] text-gray-500'>By sharing your financial achievements, you join a community of informed investors. Together, we can navigate the complexities of finance.</div>
+              <div className="tracking-tight my-3 font-inter text-2xl font-semibold leading-6 text-gray-800 capitalize text-center">Balance</div>
+              <div className='blue-link mb-5 text-base font-normal leading-[22px] text-gray-500'>Navigate finances, monitor cash flow, and make informed decisions with a holistic Balance Tracker for financial well-being.</div>
+              <a className='text-center no-underline text-black border-2 px-3 py-2 rounded-lg text-lg hover:bg-blue-200 transition duration-500 select-none'>Balance</a>
             </div>
           </div>
         </div>
