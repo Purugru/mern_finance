@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
-router.get("/", (req, res, next) => {
-  res.json("All good in here");
-});
+const { test } = require("../controller/index");
+
+router.route("/").get(test);
 
 module.exports = router;
